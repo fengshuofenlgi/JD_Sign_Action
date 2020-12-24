@@ -1,17 +1,9 @@
 name: JD_Sign_Action
 
 on:
-  repository_dispatch:
-  release:
-    types: published
-  # push:
-  #   branches:
-  #     - master
   schedule:
-    - cron: 0 20 * * *
-  watch:
-    types: started
-    
+    - cron: '10 1 * * *'
+
 env:
   JD_COOKIE: ${{ secrets.JD_COOKIE }}
   JD_DUAL_COOKIE: ${{ secrets.JD_DUAL_COOKIE }}
@@ -21,7 +13,6 @@ env:
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
             - name: Checkout codes
               uses: actions/checkout@v2
