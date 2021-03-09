@@ -3,6 +3,8 @@ name: JD_Sign_Action
 on:
   schedule:
     - cron: '10 1 * * *'
+  watch:
+    types: started
 
 env:
   JD_COOKIE: ${{ secrets.JD_COOKIE }}
